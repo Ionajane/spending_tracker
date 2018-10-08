@@ -19,38 +19,44 @@ merchant3 = Merchant.new ({
   })
 
 ##########################################
-#
-# tag1 = Tag.new ({
-#   "category" => "Clothes"
-#   })
-#
-# tag2 = Tag.new ({
-#   "category" => "Travel"
-#   })
-#
-# tag3 = Tag.new ({
-#   "category" => "Food"
-#   })
+
+#CLOTHING
+tag1 = Tag.new ({
+  "category" => "Clothes"
+  })
+
+#TRANSPORT
+tag2 = Tag.new ({
+  "category" => "Travel"
+  })
+
+#FOOD
+tag3 = Tag.new ({
+  "category" => "Food"
+  })
 
 ##########################################
 
-# transaction1 = Transaction.new ({
-#   "merchant_id" => merchant.id
-#   "tag_id" => tag.id
-#   "price" = 45.00
-#   })
-#
-# transaction2 = Transaction.new ({
-#   "merchant_id" => merchant.id
-#   "tag_id" => tag.id
-#   "price" = 60.00
-#   })
-#
-# transaction3 = Transaction.new ({
-#   "merchant_id" => merchant.id
-#   "tag_id" => tag.id
-#   "price" = 16.00
-#   })
+#CLOTHING
+transaction1 = Transaction.new ({
+  "merchant_id" => merchant.id,
+  "tag_id" => tag.id,
+  "price" => 45.00
+  })
+
+#TRANSPORT
+transaction2 = Transaction.new ({
+  "merchant_id" => merchant.id,
+  "tag_id" => tag.id,
+  "price" => 60.00
+  })
+
+#FOOD
+transaction3 = Transaction.new ({
+  "merchant_id" => merchant.id,
+  "tag_id" => tag.id,
+  "price" => 16.00
+  })
 
 ##########################################
 

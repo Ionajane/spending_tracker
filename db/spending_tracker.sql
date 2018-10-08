@@ -2,7 +2,7 @@ DROP TABLE spending_tracker;
 
 CREATE TABLE merchants(
   id SERIAL8 PRIMARY KEY,
-  name VARCHAR(255),
+  name VARCHAR(255)
 );
 
 CREATE TABLE tags(

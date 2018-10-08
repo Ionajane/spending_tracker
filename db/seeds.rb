@@ -3,9 +3,11 @@ require_relative('../models/tag.rb')
 require_relative('../models/transaction.rb')
 require ("pry")
 
-# Merchant.delete_all()
-# Tag.delete_all()
-# Transaction.delete_all()
+Merchant.all
+
+Transaction.delete_all()
+Tag.delete_all()
+Merchant.delete_all()
 
 #CLOTHING
 merchant1 = Merchant.new({
@@ -79,9 +81,6 @@ transaction3 = Transaction.new ({
 transaction1.save()
 transaction2.save()
 transaction3.save()
-
-
-
 
 binding.pry
 nil

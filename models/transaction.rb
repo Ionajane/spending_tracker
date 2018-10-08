@@ -12,11 +12,44 @@ class Transaction
   end
 
   def save()
-    sql = 'INSERT INTO transactions (merchant_id, tag_id)
-    VALUES ($1, $2) RETURNING id'
-    values = [@merchant_id, @tag_id]
+    sql = 'INSERT INTO transactions (merchant_id, tag_id, price)
+    VALUES ($1, $2, $3) RETURNING id'
+    values = [@merchant_id, @tag_id, @price]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
+  end
+
+  def self.all()
+    sql = 'SELECT * FROM transactions;'
+    transactions = SqlRunner.run(sql)
+    result = transactions.map {|transaction| Transaction.new(transaction)}
+    return result
+  end
+
+  def self.find(id)
+    sql = 'SELECT * FROM tranactions WHERE id = $1;'
+    values = [id]
+    transaction = SqlRunner.run(sql, values)
+    result = Transaction.new(transaction.first)
+    return result
+  end
+
+  def update()
+    sql = 'UPDATE transactions SET (merchant_id, tag_id, price)
+    = ($1, $2, $3) WHERE id = ($4);'
+    values = [@merchant_id, @tag_id, @price]
+    SqlRunner.run(sql, values)
+  end
+
+  def delete()
+    sql = 'DELETE FROM transactions WHERE id = $1;'
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
+  def self.delete_all()
+    sql = 'DELETE FROM transactions;'
+    SqlRunner.run(sql)
   end
 
 end

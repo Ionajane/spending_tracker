@@ -1,4 +1,6 @@
-DROP TABLE spending_tracker;
+DROP TABLE merchants;
+DROP TABLE tags;
+DROP TABLE transactions;
 
 CREATE TABLE merchants(
   id SERIAL8 PRIMARY KEY,
@@ -8,12 +10,12 @@ CREATE TABLE merchants(
 CREATE TABLE tags(
   id SERIAL8 PRIMARY KEY,
   category VARCHAR(255),
-  merchant_id INT8 REFERENCES merchant(id)
+  merchant_id INT8 REFERENCES merchants(id)
 );
 
 CREATE TABLE transactions(
   id SERIAL8 PRIMARY KEY,
-  merchants_id INT8 REFERENCES merchant(id),
-  tags_id INT8 REFERENCES tag(id),
+  merchant_id INT8 REFERENCES merchants(id),
+  tag_id INT8 REFERENCES tags(id),
   price NUMERIC
 );

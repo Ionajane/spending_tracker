@@ -1,6 +1,6 @@
-require_relative('../models/merchant')
-# require_relative('../models/tag')
-# require_relative('../models/transaction')
+require_relative('../models/merchant.rb')
+require_relative('../models/tag.rb')
+require_relative('../models/transaction.rb')
 require ("pry")
 
 #CLOTHING
@@ -39,22 +39,22 @@ tag3 = Tag.new ({
 
 #CLOTHING
 transaction1 = Transaction.new ({
-  "merchant_id" => merchant.id,
-  "tag_id" => tag.id,
+  "merchant_id" => merchant1.id,
+  "tag_id" => tag1.id,
   "price" => 45.00
   })
 
 #TRANSPORT
 transaction2 = Transaction.new ({
-  "merchant_id" => merchant.id,
-  "tag_id" => tag.id,
+  "merchant_id" => merchant2.id,
+  "tag_id" => tag2.id,
   "price" => 60.00
   })
 
 #FOOD
 transaction3 = Transaction.new ({
-  "merchant_id" => merchant.id,
-  "tag_id" => tag.id,
+  "merchant_id" => merchant3.id,
+  "tag_id" => tag3.id,
   "price" => 16.00
   })
 

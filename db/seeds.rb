@@ -3,20 +3,30 @@ require_relative('../models/tag.rb')
 require_relative('../models/transaction.rb')
 require ("pry")
 
+# Merchant.delete_all()
+# Tag.delete_all()
+# Transaction.delete_all()
+
 #CLOTHING
 merchant1 = Merchant.new({
   "name" => "ASOS"
   })
+
+merchant1.save()
 
 #TRANSPORT
 merchant2 = Merchant.new({
   "name" => "Lothian Buses"
   })
 
+merchant2.save()
+
 #FOOD
 merchant3 = Merchant.new ({
   "name" => "Wagamamas"
   })
+
+merchant3.save()
 
 ##########################################
 
@@ -25,15 +35,21 @@ tag1 = Tag.new ({
   "category" => "Clothes"
   })
 
+tag1.save()
+
 #TRANSPORT
 tag2 = Tag.new ({
   "category" => "Travel"
   })
 
+tag2.save()
+
 #FOOD
 tag3 = Tag.new ({
   "category" => "Food"
   })
+
+tag3.save()
 
 ##########################################
 
@@ -60,7 +76,12 @@ transaction3 = Transaction.new ({
 
 ##########################################
 
-merchant1.save()
+transaction1.save()
+transaction2.save()
+transaction3.save()
+
+
+
 
 binding.pry
 nil

@@ -1,14 +1,78 @@
+header-image {
+  image: url("logo_example.png");
+}
+
 body {
-  background: #ADC6CC;
+  background-image: url("dolla_dolla.png");
   font-family: Helvetica;
 }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #4C5760;
+}
+
+li {
+    float: left;
+    display: inline;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+    background-color: #B1CBD1;
+}
+
+a:link, a:visited {
+    background-color: #4C5760;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover, a:active {
+    background-color: #93A8AC;
+}
+
+
+
+table, td, th {
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 15px;
+}
+
+
 
 h1{
   font-family: Helvetica;
   color: #FFFFFF;
+  background-color: #4C5760;
+  padding: 12px 14px;
 }
 
 p{
   font-family: Helvetica;
   color: #FFFFFF;
+  background-color: #4C5760;
+  padding: 12px 14px;
 }

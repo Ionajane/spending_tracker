@@ -4,13 +4,11 @@
 <br>
 <br>
 <br>
-  <% for merchant in @merchants %>
-  <p><%= merchant.name %>
-    <a href="/merchant/<%= merchant.id %>">Edit</a>
-
-    <form action="merchant/:id/delete" method="post">
-      <input type="submit" value="delete">
-    </form></p>
-
-<hr/>
-  <% end %>
+<table>
+  <tr>
+    <% for merchant in @merchants %>
+    <td><p><%= merchant.name %> <a href="/merchant/<%= merchant.id %>">Edit</a>
+    </form></p></td>
+    <% end %>
+  </tr>
+</table>

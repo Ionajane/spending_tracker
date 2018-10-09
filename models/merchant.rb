@@ -8,12 +8,13 @@ class Merchant
   def initialize(options)
     @id = options['id'].to_i
     @name = options['name']
+    @tag_id = options['tag_id'].to_i
   end
 
   def save()
-    sql = 'INSERT INTO merchants(name)
-    VALUES ($1) RETURNING id;'
-    values = [@name]
+    sql = 'INSERT INTO merchants(name, tag_id)
+    VALUES ($1, $2) RETURNING id;'
+    values = [@name, @tag_id]
     merchant_data = SqlRunner.run(sql, values)
     @id = merchant_data.first()['id'].to_i
   end
@@ -34,9 +35,9 @@ class Merchant
   end
 
   def update()
-    sql = 'UPDATE merchants SET (name) = ($1)
-    WHERE id ($2);'
-    values =[@name]
+    sql = 'UPDATE merchants SET (name, tag_id) = ($1, $2)
+    WHERE id ($3);'
+    values =[@name, @tag_id]
     SqlRunner.run(sql, values)
   end
 
@@ -49,6 +50,12 @@ class Merchant
   def self.delete_all()
     sql = 'DELETE FROM merchants;'
     SqlRunner.run(sql)
+  end
+
+  def tag()
+    sql = 'SELECT * FROM tags;'
+    SqlRunner.run(sql)
+
   end
 
 end

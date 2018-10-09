@@ -1,15 +1,16 @@
 DROP TABLE transactions;
-DROP TABLE tags;
 DROP TABLE merchants;
-
-CREATE TABLE merchants(
-  id SERIAL8 PRIMARY KEY,
-  name VARCHAR(255)
-);
+DROP TABLE tags;
 
 CREATE TABLE tags(
   id SERIAL8 PRIMARY KEY,
   category VARCHAR(255)
+);
+
+CREATE TABLE merchants(
+  id SERIAL8 PRIMARY KEY,
+  name VARCHAR(255),
+  tag_id INT8 REFERENCES tags(id) ON DELETE CASCADE
 );
 
 CREATE TABLE transactions(

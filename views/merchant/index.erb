@@ -1,15 +1,16 @@
 <h1>MERCHANTS</h1>
+<br>
+  <a href="/merchant/new">ADD NEW</a>
+<br>
+<br>
+<br>
+  <% for merchant in @merchants %>
+  <p><%= merchant.name %>
+    <a href="/merchant/<%= merchant.id %>">Edit</a>
 
-<h4>ADD A NEW MERCHANT</h4>
+    <form action="merchant/:id/delete" method="post">
+      <input type="submit" value="delete">
+    </form></p>
 
-<form action="/merchant" method="post">
-  <label for="name-field">Name:</label>
-  <input type="text" name="name" id="name-field">
-  <input type="submit" value="ADD">
-</form>
-
-<% for merchant in @merchants %>
-<p><%= merchant.name %>
-<a href="/merchant/<%= merchant.id %>">Edit</a></p>
 <hr/>
-<% end %>
+  <% end %>

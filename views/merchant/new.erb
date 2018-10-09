@@ -1,9 +1,17 @@
-<h1>ADD A NEW MERCHANT</h1>
+<h1>NEWBIE:</h1>
 
 <form action="/merchant" method="post">
-
-  <label for="name-field">Name:</label>
+  <label for="name-field">NAME:</label>
   <input type="text" name="name" id="name-field">
+
+  <label>
+    SELECT TAG:
+    <select name="tag_id">
+      <% for tag in @tags %>
+      <option value="<%= tag.id %>"><%= tag.category%></option>
+      <% end %>
+    </select>
+  </label>
 
   <input type="submit" value="ADD">
 </form>

@@ -1,0 +1,8 @@
+<h1>TRANSACTION HISTORY</h1>
+
+<% for transaction in @transactions %>
+<p>Merchant Id:<%= transaction.merchant_id %></p>
+<p>Tag Id: <%= transaction.tag_id %></p>
+<p>Price: <%= transaction.price %></p>
+<hr/>
+<% end %>

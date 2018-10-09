@@ -13,5 +13,10 @@ get '/merchant/new' do
   @merchants = Merchant.all()
     erb(:"merchant/new")
 end
+#LINK NEW.ERB TO ADD NEW ON MERCHANT
 
-get
+get '/merchant/:id/edit' do
+  id = params[:id].to_i()
+  @merchants = Merchant.find(id)
+  erb(:"merchant/edit")
+end

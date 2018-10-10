@@ -1,20 +1,20 @@
 require_relative('../db/sql_runner.rb')
 
 class Transaction
-  attr_reader :id, :merchant_id, :tag_id
+  attr_reader :id, :provider_id, :fund_id
   attr_accessor :price
 
   def initialize(options)
     @id = options['id'].to_i
-    @merchant_id = options['merchant_id'].to_i
-    @tag_id = options['tag_id'].to_i
+    @provider_id = options['provider_id'].to_i
+    @fund_id = options['fund_id'].to_i
     @price = options['price'].to_f
   end
 
   def save()
-    sql = 'INSERT INTO transactions (merchant_id, tag_id, price)
+    sql = 'INSERT INTO transactions (provider_id, fund_id, price)
     VALUES ($1, $2, $3) RETURNING id'
-    values = [@merchant_id, @tag_id, @price]
+    values = [@provider_id, @fund_id, @price]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
@@ -35,9 +35,9 @@ class Transaction
   end
 
   def update()
-    sql = 'UPDATE transactions SET (merchant_id, tag_id, price)
+    sql = 'UPDATE transactions SET (provider_id, fund_id, price)
     = ($1, $2, $3) WHERE id = ($4);'
-    values = [@merchant_id, @tag_id, @price]
+    values = [@provider_id, @fund_id, @price]
     SqlRunner.run(sql, values)
   end
 
@@ -52,24 +52,23 @@ class Transaction
     SqlRunner.run(sql)
   end
 
-#pull through the merchant name, category from tags to show full details
   def transaction_data()
-    sql = 'SELECT * FROM merchants;'
+    sql = 'SELECT * FROM providers;'
     results = SqlRunner.run(sql)
   end
 
-  def merchant()
-    sql = 'SELECT name FROM merchants WHERE id = $1'
-    values = [@merchant_id]
+  def provider()
+    sql = 'SELECT name FROM providers WHERE id = $1'
+    values = [@provider_id]
     results = SqlRunner.run(sql, values)
-    return Merchant.new(results.first)
+    return Provider.new(results.first)
   end
 
-  def tag()
-    sql = 'SELECT category FROM tags WHERE id = $1'
-    values = [@tag_id]
+  def fund()
+    sql = 'SELECT category FROM funds WHERE id = $1'
+    values = [@fund_id]
     results = SqlRunner.run(sql, values)
-    return Tag.new(results.first)
+    return Fund.new(results.first)
   end
 
 

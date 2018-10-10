@@ -1,0 +1,17 @@
+<h1>EDIT DETAILS</h1>
+
+<form action="/provider/<%= @provider.id %>" method="post">
+  <label for="name-field">NAME:</label>
+  <input type="text" name="name" id="name-field" value="<%= @provider.name%>">
+
+  <label>
+    SELECT FUND:
+    <select name="fund_id" id=>
+      <% for fund in @funds %>
+      <option value="<%= fund.id %>"><%= fund.category%></option>
+      <% end %>
+    </select>
+  </label>
+
+  <input type="submit" value="EDIT">
+</form>

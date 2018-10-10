@@ -1,14 +1,14 @@
 <h1>NEWBIE:</h1>
 
-<form action="/merchant" method="post">
+<form action="/provider" method="post">
   <label for="name-field">NAME:</label>
   <input type="text" name="name" id="name-field">
 
   <label>
-    SELECT TAG:
-    <select name="tag_id">
-      <% for tag in @tags %>
-      <option value="<%= tag.id %>"><%= tag.category%></option>
+    SELECT FUND:
+    <select name="fund_id">
+      <% for fund in @funds %>
+      <option value="<%= fund.id %>"><%= fund.category%></option>
       <% end %>
     </select>
   </label>

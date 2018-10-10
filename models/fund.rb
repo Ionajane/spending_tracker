@@ -1,6 +1,6 @@
 require_relative('../db/sql_runner.rb')
 
-class Tag
+class Fund
 
   attr_reader :id, :category
 
@@ -10,7 +10,7 @@ class Tag
   end
 
   def save()
-    sql = 'INSERT INTO tags(category)
+    sql = 'INSERT INTO funds(category)
     VALUES ($1) RETURNING id;'
     values = [@category]
     results = SqlRunner.run(sql,values)
@@ -18,34 +18,34 @@ class Tag
   end
 
   def self.all()
-    sql = 'SELECT * FROM tags;'
-    tags = SqlRunner.run(sql)
-    result = tags.map {|tag| Tag.new(tag)}
+    sql = 'SELECT * FROM funds;'
+    funds = SqlRunner.run(sql)
+    result = funds.map {|fund| Fund.new(fund)}
     return result
   end
 
   def self.find(id)
-    sql = 'SELECT * FROM tags WHERE id = $1;'
+    sql = 'SELECT * FROM funds WHERE id = $1;'
     values = [id]
-    tag = SqlRunner.run(sql, values)
-    result = Tag.new(tag.first)
+    fund = SqlRunner.run(sql, values)
+    result = Fund.new(fund.first)
     return result
   end
 
   def update()
-    sql = 'UPDATE tags SET (category) = $1 WHERE id = ($2);'
+    sql = 'UPDATE funds SET (category) = $1 WHERE id = ($2);'
     values = [@category]
     SqlRunner.run(sql, values)
   end
 
   def delete()
-    sql = 'DELETE FROM tags WHERE id = $1;'
+    sql = 'DELETE FROM funds WHERE id = $1;'
     values = [@id]
     SqlRunner.run(sql, values)
   end
 
   def self.delete_all()
-    sql = 'DELETE FROM tags;'
+    sql = 'DELETE FROM funds;'
     SqlRunner.run(sql)
   end
 

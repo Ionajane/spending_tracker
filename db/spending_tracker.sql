@@ -1,21 +1,21 @@
-DROP TABLE transactions;
-DROP TABLE merchants;
-DROP TABLE tags;
+DROP TABLE IF EXISTS transactions;
+DROP TABLE IF EXISTS providers;
+DROP TABLE IF EXISTS funds;
 
-CREATE TABLE tags(
+CREATE TABLE funds(
   id SERIAL8 PRIMARY KEY,
   category VARCHAR(255)
 );
 
-CREATE TABLE merchants(
+CREATE TABLE providers(
   id SERIAL8 PRIMARY KEY,
   name VARCHAR(255),
-  tag_id INT8 REFERENCES tags(id) ON DELETE CASCADE
+  fund_id INT8 REFERENCES funds(id) ON DELETE CASCADE
 );
 
 CREATE TABLE transactions(
   id SERIAL8 PRIMARY KEY,
-  merchant_id INT8 REFERENCES merchants(id) ON DELETE CASCADE,
-  tag_id INT8 REFERENCES tags(id) ON DELETE CASCADE,
+  provider_id INT8 REFERENCES providers(id) ON DELETE CASCADE,
+  fund_id INT8 REFERENCES funds(id) ON DELETE CASCADE,
   price NUMERIC
 );

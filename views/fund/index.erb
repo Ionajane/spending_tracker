@@ -1,0 +1,12 @@
+<h1>YOUR FUND INVESTMENTS</h1>
+
+<a href="/fund/new">ADD NEW</a>
+<br/>
+<br/>
+<table>
+  <tr>
+    <% for fund in @funds %>
+    <td><p><%= fund.category %></p></td>
+    <% end %>
+  </tr>
+</table>

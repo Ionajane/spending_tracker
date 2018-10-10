@@ -1,7 +1,7 @@
 <h1>TRANSACTION HISTORY</h1>
 
     <% for transaction in @transactions %>
-    <p>MERCHANT:<%= transaction.merchant.name%></p>
-    <p>TAG:<%= transaction.tag.category%></p>
+    <p>PROVIDER:<%= transaction.provider.name%></p>
+    <p>FUND:<%= transaction.fund.category%></p>
     <p>PRICE:<%= transaction.price %></p>
     <% end %>

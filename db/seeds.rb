@@ -1,81 +1,69 @@
 require_relative('../models/transaction.rb')
-require_relative('../models/merchant.rb')
-require_relative('../models/tag.rb')
+require_relative('../models/provider.rb')
+require_relative('../models/fund.rb')
 require ("pry")
 
-Merchant.all
 
+Fund.delete_all()
+Provider.delete_all()
 Transaction.delete_all()
-Tag.delete_all()
-Merchant.delete_all()
 
-#CLOTHING
-tag1 = Tag.new ({
-  "category" => "Clothes"
+fund1 = Fund.new ({
+  "category" => "Pension Portfolio 1"
   })
+  fund1.save()
 
-  tag1.save()
-
-  #TRANSPORT
-  tag2 = Tag.new ({
-    "category" => "Travel"
+  fund2 = Fund.new ({
+    "category" => "Pension Portfolio 2"
     })
+  fund2.save()
 
-  tag2.save()
-
-  #FOOD
-  tag3 = Tag.new ({
-    "category" => "Food"
+  fund3 = Fund.new ({
+    "category" => "Pension Portfolio 3"
     })
-
-  tag3.save()
+  fund3.save()
 
 ##########################################
 
-#CLOTHING
-merchant1 = Merchant.new({
-  "name" => "ASOS",
-  "tag_id" => tag1.id
+
+provider1 = Provider.new({
+  "name" => "Standard Life",
+  "fund_id" => fund1.id
+  })
+  provider1.save()
+
+provider2 = Provider.new({
+  "name" => "Hangreaves Lansdown",
+  "fund_id" => fund2.id
   })
 
-merchant1.save()
+provider2.save()
 
-#TRANSPORT
-merchant2 = Merchant.new({
-  "name" => "Lothian Buses",
-  "tag_id" => tag2.id
+provider3 = Provider.new ({
+  "name" => "Aegon",
+  "fund_id" => fund3.id
   })
+provider3.save()
 
-merchant2.save()
-
-#FOOD
-merchant3 = Merchant.new ({
-  "name" => "Wagamamas",
-  "tag_id" => tag3.id
-  })
-
-merchant3.save()
+Provider.all
 
 ##########################################
 
-#CLOTHING
 transaction1 = Transaction.new ({
-  "merchant_id" => merchant1.id,
-  "tag_id" => tag1.id,
+  "provider_id" => provider1.id,
+  "fund_id" => fund1.id,
   "price" => 45
   })
 
-#TRANSPORT
 transaction2 = Transaction.new ({
-  "merchant_id" => merchant2.id,
-  "tag_id" => tag2.id,
+  "provider_id" => provider2.id,
+  "fund_id" => fund2.id,
   "price" => 60
   })
 
-#FOOD
 transaction3 = Transaction.new ({
-  "merchant_id" => merchant3.id,
-  "tag_id" => tag3.id,
+  "provider_id" => provider3.id,
+  "fund_id" => fund3.id,
   "price" => 16
   })
 

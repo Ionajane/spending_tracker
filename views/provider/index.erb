@@ -1,0 +1,18 @@
+<h1>YOUR PENSIONS</h1>
+<br>
+  <a href="/provider/new">ADD NEW PROVIDER</a>
+<br>
+<br>
+<br>
+<table>
+  <tr>
+    <% for provider in @providers %>
+    <td><p> <%= provider.name %>
+      <br>
+            <%= provider.fund.category %>
+      <br>
+        <a href="/provider/<%= provider.id %>">Edit</a>
+    </p></td>
+    <% end %>
+  </tr>
+</table>

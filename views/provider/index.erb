@@ -20,3 +20,48 @@
     <% end %>
   </tr>
 </table>
+
+<table>
+  <tr>
+    <th style="width:50%">PROVIDERS</th>
+    <th>DELETE</th>
+    <th>EDIT</th>
+  </tr>
+  <tr>
+    <td><% for provider in @providers %>
+    <%= provider.name %><% end %></td>
+
+    <td><form action="/provider/<%= provider.id %>/delete" method="post">
+      <input type="submit" value="DELETE">
+    </form><i class="fa fa-remove"></i></td>
+
+    <td><a href="/provider/<%= provider.id %>">Edit</a><i class="fa fa-remove"></i></td>
+  </tr>
+
+  <tr>
+    <td><% for provider in @providers %>
+    <%= provider.name %><% end %></td>
+    <td><form action="/provider/<%= provider.id %>/delete" method="post">
+      <input type="submit" value="DELETE">
+    </form><i class="fa fa-check"></i></td>
+    <td><a href="/provider/<%= provider.id %>">Edit</a><i class="fa fa-check"></i></td>
+  </tr>
+
+  <tr>
+    <td><% for provider in @providers %>
+    <%= provider.name %><% end %></td>
+    <td><form action="/provider/<%= provider.id %>/delete" method="post">
+      <input type="submit" value="DELETE">
+    </form><i class="fa fa-check"></i></td>
+    <td><a href="/provider/<%= provider.id %>">Edit</a><i class="fa fa-check"></i></td>
+  </tr>
+
+  <tr>
+    <td><% for provider in @providers %>
+    <%= provider.name %><% end %></td>
+    <td><form action="/provider/<%= provider.id %>/delete" method="post">
+      <input type="submit" value="DELETE">
+    </form><i class="fa fa-remove"></i></td>
+    <td><a href="/provider/<%= provider.id %>">Edit</a><i class="fa fa-remove"></i></td>
+  </tr>
+</table>

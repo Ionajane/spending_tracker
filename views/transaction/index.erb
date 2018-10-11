@@ -1,12 +1,8 @@
 <h1>TRANSACTION HISTORY</h1>
+<h2>TOTAL: £ <%= @total %></h2>
 <br>
-  <a href="/transaction/new">ADD NEW TRANSACTION</a>
-<br>
-<br>
-<br>
+<a href="/transaction/new">ADD NEW TRANSACTION</a>
     <% for transaction in @transactions %>
     <h3><%= transaction.provider.name%> £<%= transaction.price %><br/>
       (<%= transaction.fund.category%>)</h3>
     <% end %>
-
-    <h2>TOTAL YOU HAVE PAID: £ <%= @total %></h2>

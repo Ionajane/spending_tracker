@@ -2,13 +2,13 @@ require_relative('../db/sql_runner.rb')
 
 class Transaction
   attr_reader :id, :provider_id, :fund_id
-  attr_accessor :price
+  attr_accessor :price, :total
 
   def initialize(options)
     @id = options['id'].to_i
     @provider_id = options['provider_id'].to_i
     @fund_id = options['fund_id'].to_i
-    @price = options['price'].to_f
+    @price = options['price'].to_i
   end
 
   def save()
@@ -71,6 +71,10 @@ class Transaction
     return Fund.new(results.first)
   end
 
-
+  def self.total()
+    sql = 'SELECT SUM(price) FROM transactions'
+    results = SqlRunner.run(sql)
+    return results[0]["sum"]
+  end
 
 end

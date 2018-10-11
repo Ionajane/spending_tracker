@@ -1,0 +1,28 @@
+<h1>NEW TRANSACTION:</h1>
+
+<form action="/transaction" method="post">
+  
+  <label for="price-field">PRICE:</label>
+  <input type="text" name="price" id="price-field">
+
+  <label>
+    SELECT PROVIDER:
+    <select name="provider_id">
+      <% for provider in @providers %>
+      <option value="<%= provider.id %>"><%= provider.name %></option>
+      <% end %>
+    </select>
+  </label>
+
+
+  <label>
+    SELECT FUND:
+    <select name="fund_id">
+      <% for fund in @funds %>
+      <option value="<%= fund.id %>"><%= fund.category%></option>
+      <% end %>
+    </select>
+  </label>
+
+  <input type="submit" value="ADD">
+</form>

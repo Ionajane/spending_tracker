@@ -37,8 +37,8 @@ class Provider
   def update()
     sql = 'UPDATE providers
     SET (name, fund_id) = ($1, $2)
-    WHERE id ($3);'
-    values =[@name, @fund_id]
+    WHERE id = $3;'
+    values =[@name, @fund_id, @id]
     SqlRunner.run(sql, values)
   end
 

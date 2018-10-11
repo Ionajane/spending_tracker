@@ -18,7 +18,7 @@ end
 post '/fund' do
   @funds = Fund.new(params)
   @funds.save
-  erb(:'fund/create')
+  redirect ('/fund')
 end
 
 post '/fund/:id/delete' do

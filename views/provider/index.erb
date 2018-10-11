@@ -1,4 +1,4 @@
-<h1>YOUR PENSIONS</h1>
+<h1>YOUR PENSION PROVIDERS</h1>
 <br>
   <a href="/provider/new">ADD NEW PROVIDER</a>
 <br>
@@ -7,12 +7,16 @@
 <table>
   <tr>
     <% for provider in @providers %>
-    <td><p> <%= provider.name %>
+    <td><h5><%= provider.name %>
       <br>
-            <%= provider.fund.category %>
+            <%= provider.fund.category %></h5>
       <br>
-        <a href="/provider/<%= provider.id %>">Edit</a>
-    </p></td>
+    <a href="/provider/<%= provider.id %>">Edit</a>
+
+    <form action="/provider/<%= provider.id %>/delete" method="post">
+      <input type="submit" value="DELETE">
+    </form>
+    </td>
     <% end %>
   </tr>
 </table>

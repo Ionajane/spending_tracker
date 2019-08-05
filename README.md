@@ -1,4 +1,4 @@
-<h1><b>Spending Tracker Brief:</b></h1>
+<h1><b> Brief:</b></h1>
 Build an app that allows a user to track their spending.
 <br>
 <h3>MVP:</h3>
